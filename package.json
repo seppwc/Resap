@@ -1,5 +1,5 @@
 {
-  "name": "Resap",
+  "name": "resap",
   "version": "0.0.1",
   "description": "React hooks for easy GSAP animations, cause why not?",
   "main": "build/index.js",
@@ -18,7 +18,7 @@
 	"gsap",
 	"animation",
 	"animations",
-	"hooks"
+	"hooks",
 	"library"
 ],
   "author": "Sepp Wikramaratna-Clarke",

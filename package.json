@@ -1,0 +1,30 @@
+{
+  "name": "Resap",
+  "version": "0.0.1",
+  "description": "React hooks for easy GSAP animations, cause why not?",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phl3bas/Resap.git"
+  },
+  "keywords": [
+	"npm",
+	"node",
+	"react",
+	"javascript",
+	"gsap",
+	"animation",
+	"animations",
+	"hooks"
+	"library"
+],
+  "author": "Sepp Wikramaratna-Clarke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Phl3bas/Resap/issues"
+  },
+  "homepage": "https://github.com/Phl3bas/Resap#readme"
+}

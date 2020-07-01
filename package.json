@@ -8,7 +8,7 @@
     "build": "npm run lint && parcel build ./src/index.ts -d ./lib/",
     "dev": "parcel watch ./src/index.ts -d ./lib/",
     "prepublishOnly": "npm run build",
-    "test": "nyc mocha -r ts-node/register /test/**/* "
+    "test": "nyc mocha -r ts-node/register ./test/**/*.spec.ts "
   },
   "nyc": {
     "reporter": [

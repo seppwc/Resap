@@ -2,9 +2,9 @@ interface Prop {
   msg: string
 }
 
-type myFunc = (a: Prop) => void
+type myFunc = (a: Prop) => string
 
-const f: myFunc = ({ msg }: Prop): void => {
-  console.log(`hello ${msg}`)
+export const f: myFunc = ({ msg }: Prop): string => {
+  return `Hello ${msg}`
 }
-f({ msg: 'bob' })
+console.log(f({ msg: 'bob' }))

@@ -39,6 +39,7 @@
   "homepage": "https://github.com/Phl3bas/Resap#readme",
   "devDependencies": {
     "@types/chai": "^4.2.11",
+    "@types/gsap": "^1.20.2",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.0.14",
     "@types/react": "^16.9.41",
@@ -62,5 +63,8 @@
     "react-dom": "^16.13.1",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "gsap": "^3.3.4"
   }
 }

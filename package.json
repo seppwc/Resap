@@ -4,6 +4,8 @@
   "description": "React hooks for easy GSAP animations, cause why not?",
   "main": "build/index.js",
   "scripts": {
+    "build": "parcel build ./src/index.ts -d ./lib/",
+    "dev": "parcel watch ./src/index.ts -d ./lib/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,20 +13,24 @@
     "url": "git+https://github.com/Phl3bas/Resap.git"
   },
   "keywords": [
-	"npm",
-	"node",
-	"react",
-	"javascript",
-	"gsap",
-	"animation",
-	"animations",
-	"hooks",
-	"library"
-],
+    "npm",
+    "node",
+    "react",
+    "javascript",
+    "gsap",
+    "animation",
+    "animations",
+    "hooks",
+    "library"
+  ],
   "author": "Sepp Wikramaratna-Clarke",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Phl3bas/Resap/issues"
   },
-  "homepage": "https://github.com/Phl3bas/Resap#readme"
+  "homepage": "https://github.com/Phl3bas/Resap#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.9.5"
+  }
 }

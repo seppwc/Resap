@@ -2,36 +2,37 @@ import React from 'react'
 import gsap from 'gsap'
 
 type ResapToggleFunction = (
-  initialState: boolean,
+  state: boolean,
   options: gsap.TweenVars | gsap.CSSVars
-) => Array<any>
+) => React.SetStateAction<React.SetStateAction<gsap.TweenTarget>>
 
 type ResapAnimateFunction = () => void
 
 export const useToggle: ResapToggleFunction = (
-  initialState: boolean,
+  state: boolean,
   options: gsap.TweenVars | gsap.CSSVars
-): Array<any> => {
+): React.SetStateAction<React.SetStateAction<gsap.TweenTarget>> => {
   const [ref, setRef] = React.useState<gsap.TweenTarget>(null)
-  const [state, set] = React.useState(initialState)
+  const [loaded, setLoaded] = React.useState(0)
   const { current: tl } = React.useRef<gsap.core.Timeline>(
     gsap.timeline({ paused: true })
   )
-  const [toggleState, setToggle] = React.useState(initialState)
 
   React.useLayoutEffect(() => {
-    tl.reversed(initialState)
+    tl.reversed(state)
     tl.to(ref, options)
   }, [tl, ref, options])
 
+  const animate: ResapAnimateFunction = React.useCallback((): void => {
+    state ? tl.reverse() : tl.play()
+  }, [tl, state])
+
   React.useEffect(() => {
-    setToggle(state)
+    if (loaded) {
+      animate()
+    }
+    setLoaded(loaded + 1)
   }, [state])
 
-  const animate: ResapAnimateFunction = React.useCallback((): void => {
-    state ? tl.play() : tl.reverse()
-    set(!state)
-  }, [tl, state, set])
-
-  return [setRef, animate, toggleState]
+  return setRef
 }

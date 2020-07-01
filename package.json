@@ -2,7 +2,7 @@
   "name": "resap",
   "version": "0.1.0",
   "description": "React hooks for easy GSAP animations, cause why not?",
-  "main": "build/index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint ./src/index.ts",
     "build": "npm run lint && tsc",

@@ -1,17 +1,19 @@
 import React from 'react'
 import gsap from 'gsap'
 
+type OptionProp = gsap.TweenVars | gsap.CSSVars
+
 type ResapToggleFunction = (
   state: boolean,
-  options: gsap.TweenVars | gsap.CSSVars
-) => React.SetStateAction<React.SetStateAction<gsap.TweenTarget>>
+  options: OptionProp | OptionProp[]
+) => VoidFunction
 
 type ResapAnimateFunction = () => void
 
 export const useToggle: ResapToggleFunction = (
   state: boolean,
-  options: gsap.TweenVars | gsap.CSSVars
-): React.SetStateAction<React.SetStateAction<gsap.TweenTarget>> => {
+  options: OptionProp | OptionProp[]
+) => {
   const [ref, setRef] = React.useState<gsap.TweenTarget>(null)
   const [loaded, setLoaded] = React.useState(0)
   const { current: tl } = React.useRef<gsap.core.Timeline>(
@@ -20,7 +22,13 @@ export const useToggle: ResapToggleFunction = (
 
   React.useLayoutEffect(() => {
     tl.reversed(state)
-    tl.to(ref, options)
+    if (options instanceof Array) {
+      options.forEach((option: OptionProp) => {
+        tl.to(ref, option)
+      })
+    } else {
+      tl.to(ref, options)
+    }
   }, [tl, ref, options])
 
   const animate: ResapAnimateFunction = React.useCallback((): void => {
@@ -34,5 +42,5 @@ export const useToggle: ResapToggleFunction = (
     setLoaded(loaded + 1)
   }, [state])
 
-  return setRef
+  return setRef as VoidFunction
 }

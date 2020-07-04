@@ -17,7 +17,12 @@ export default {
     {
       file: pkg.browser,
       format: 'iife',
-      name: 'resap', // the global which can be used in a browser
+      name: 'resapBundle', // the global which can be used in a browser
+      globals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+        gsap: 'gsap',
+      },
     },
   ],
   external: [

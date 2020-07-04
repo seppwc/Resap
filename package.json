@@ -5,10 +5,6 @@
   "main": "./lib/index.js",
   "module": "./lib/index.es.js",
   "browser": "./lib/index.bundle.js",
-  "files": [
-    "lib",
-    "README.md"
-  ],
   "types": "./lib/index.d.ts",
   "scripts": {
     "lint": "eslint ./src/index.ts",

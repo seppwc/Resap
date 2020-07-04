@@ -9,7 +9,7 @@
     "lib",
     "README.md"
   ],
-  "types": "dist/index.d.ts",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "lint": "eslint ./src/index.ts",
     "build": "npm run lint && rollup -c && tsc",

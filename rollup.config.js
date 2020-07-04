@@ -9,10 +9,20 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
+      globals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+        gsap: 'gsap',
+      },
     },
     {
       file: pkg.module,
       format: 'es', // the preferred format
+      globals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+        gsap: 'gsap',
+      },
     },
     {
       file: pkg.browser,

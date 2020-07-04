@@ -1,19 +1,25 @@
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import resolve from '@rollup/plugin-node-resolve'
+import pkg from './package.json'
 
 export default {
   input: 'src/index.ts', // our source file
-  output: {
-    file: './lib/bundle.min.js',
-    format: 'iife',
-    name: 'bundle',
-    globals: {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-      gsap: 'gsap',
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
     },
-  },
+    {
+      file: pkg.module,
+      format: 'es', // the preferred format
+    },
+    {
+      file: pkg.browser,
+      format: 'iife',
+      name: 'resap', // the global which can be used in a browser
+    },
+  ],
   external: [
     // makes dependancies and peer dependancies available to bundles
     'react',
@@ -26,6 +32,10 @@ export default {
       typescript: require('typescript'),
     }),
     terser(), // minifies generated bundles
-    resolve(),
+    resolve({
+      customResolveOptions: {
+        moduleDirectory: 'node_modules',
+      },
+    }),
   ],
 }

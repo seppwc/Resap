@@ -38,10 +38,11 @@
   },
   "homepage": "https://github.com/Phl3bas/Resap#readme",
   "dependencies": {
-    "@testing-library/react": "^10.4.3",
     "gsap": "^3.3.4"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "@testing-library/react": "^10.4.3",
     "@testing-library/react-hooks": "^3.3.0",
     "@types/jest": "^26.0.3",
     "@types/node": "^14.0.14",

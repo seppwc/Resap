@@ -1,5 +1,6 @@
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
+import { resolve } from '@rollup/plugin-node-resolve'
 import pkg from './package.json'
 
 export default {
@@ -16,15 +17,20 @@ export default {
     {
       file: pkg.browser,
       format: 'iife',
-      name: 'MyPackage', // the global which can be used in a browser
+      name: 'resap', // the global which can be used in a browser
     },
   ],
-  external: [...Object.keys(pkg.dependencies || {})],
+  external: [
+    // makes dependancies and peer dependancies available to bundles
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
+  ],
   plugins: [
     typescript({
       // eslint-disable-next-line global-require
       typescript: require('typescript'),
     }),
     terser(), // minifies generated bundles
+    resolve(),
   ],
 }

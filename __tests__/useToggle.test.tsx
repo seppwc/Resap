@@ -40,4 +40,22 @@ describe('useToggle', () => {
     fireEvent(container.baseElement, new MouseEvent('click'))
     waitFor(() => expect(container.baseElement.getBoundingClientRect().x).toBe(100))
   })
+
+  it('should toggle animation back to original start position when state changed a second time', () => {
+    const TestElement = () => {
+      const [open, set] = React.useState(false)
+      const ref = useToggle(open, { x: 100, duration: 1 })
+
+      const handleClick = () => {
+        set(!open)
+      }
+
+      return <div ref={ref} onClick={handleClick} />
+    }
+
+    const container = render(<TestElement />)
+    fireEvent(container.baseElement, new MouseEvent('click'))
+    fireEvent(container.baseElement, new MouseEvent('click'))
+    waitFor(() => expect(container.baseElement.getBoundingClientRect().x).toBe(0))
+  })
 })

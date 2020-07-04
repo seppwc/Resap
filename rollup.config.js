@@ -31,6 +31,10 @@ export default {
       typescript: require('typescript'),
     }),
     terser(), // minifies generated bundles
-    resolve(),
+    resolve({
+      customResolveOptions: {
+        moduleDirectory: 'node_modules',
+      },
+    }),
   ],
 }

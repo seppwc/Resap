@@ -1,6 +1,11 @@
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import resolve from '@rollup/plugin-node-resolve'
+import globals from 'rollup-plugin-node-globals'
+import commonjs from '@rollup/plugin-commonjs'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import externalGlobals from 'rollup-plugin-external-globals'
 import pkg from './package.json'
 
 export default {
@@ -9,22 +14,23 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
+      globals: [{ react: 'React', gsap: 'gsap' }],
     },
     {
       file: pkg.module,
       format: 'es', // the preferred format
+      globals: [{ react: 'React', gsap: 'gsap' }],
     },
     {
       file: pkg.browser,
       format: 'iife',
       name: 'resap', // the global which can be used in a browser
+      globals: [{ react: 'React', gsap: 'gsap' }],
     },
   ],
   external: [
     // makes dependancies and peer dependancies available to bundles
     'react',
-    'react-dom',
-    'gsap',
   ],
   plugins: [
     typescript({
@@ -32,10 +38,12 @@ export default {
       typescript: require('typescript'),
     }),
     terser(), // minifies generated bundles
-    resolve({
-      customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      },
+    commonjs(),
+    resolve(),
+    globals(),
+    peerDepsExternal(),
+    externalGlobals({
+      react: 'React',
     }),
   ],
 }

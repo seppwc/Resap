@@ -1,12 +1,19 @@
 {
   "name": "resap",
-  "version": "0.1.7",
+  "version": "0.1.0",
   "description": "React hooks for easy GSAP animations, cause why not?",
   "main": "./lib/index.js",
   "module": "./lib/index.es.js",
   "browser": "./lib/index.bundle.js",
   "files": [
-    "lib",
+    "lib/index.js",
+    "lib/index.bundle.js",
+    "lib/index.es.js",
+    "lib/index.d.ts",
+    "lib/index.d.ts.map",
+    "lib/index.js.map",
+    "lib/bundle.min.js",
+    "lib/hooks/",
     "README.md",
     "package.json"
   ],
@@ -42,6 +49,7 @@
     "gsap": "^3.3.4"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@testing-library/react": "^10.4.3",
     "@testing-library/react-hooks": "^3.3.0",
@@ -68,6 +76,8 @@
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "rollup": "^2.18.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.1",
     "sinon": "^9.0.2",
@@ -76,7 +86,6 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.13.1"
   }
 }

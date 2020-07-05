@@ -1,10 +1,10 @@
 {
   "name": "resap",
-  "version": "0.1.1",
+  "version": "0.1.8",
   "description": "React hooks for easy GSAP animations, cause why not?",
-  "main": "./lib/index.js",
-  "module": "./lib/index.es.js",
-  "browser": "./lib/index.bundle.js",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "browser": "lib/index.bundle.js",
   "files": [
     "lib/index.js",
     "lib/index.bundle.js",
@@ -17,7 +17,7 @@
     "README.md",
     "package.json"
   ],
-  "types": "./lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "lint": "eslint ./src/index.ts",
     "build": "npm run lint && rollup -c && tsc",

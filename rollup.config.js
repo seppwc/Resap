@@ -12,25 +12,20 @@ export default {
   input: 'src/index.ts', // our source file
   output: [
     {
-      file: pkg.main,
+      file: `lib/${pkg.main}`,
       format: 'cjs',
       globals: [{ react: 'React', gsap: 'gsap' }],
     },
     {
-      file: pkg.module,
+      file: `lib/${pkg.module}`,
       format: 'es', // the preferred format
-      globals: [{ react: 'React', gsap: 'gsap' }],
-    },
-    {
-      file: pkg.browser,
-      format: 'iife',
-      name: 'resap', // the global which can be used in a browser
       globals: [{ react: 'React', gsap: 'gsap' }],
     },
   ],
   external: [
     // makes dependancies and peer dependancies available to bundles
-    'react',
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
   ],
   plugins: [
     typescript({

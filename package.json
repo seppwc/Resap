@@ -2,9 +2,9 @@
   "name": "resap",
   "version": "0.1.14",
   "description": "React hooks for easy GSAP animations, cause why not?",
-  "main": "index.js",
-  "module": "index.es.js",
-  "browser": "index.bundle.js",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "browser": "lib/index.bundle.js",
   "files": [
     "lib/**/*",
     "README.md",

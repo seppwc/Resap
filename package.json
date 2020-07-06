@@ -6,7 +6,7 @@
   "module": "lib/index.es.js",
   "browser": "lib/index.bundle.js",
   "files": [
-    "lib",
+    "lib/**/*",
     "README.md",
     "package.json"
   ],
@@ -33,7 +33,7 @@
     "library"
   ],
   "author": "Sepp Wikramaratna-Clarke",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Phl3bas/Resap/issues"
   },
@@ -79,6 +79,6 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": ">= 16.13.1 < 17"
   }
 }

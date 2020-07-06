@@ -6,7 +6,7 @@
   "module": "lib/index.es.js",
   "browser": "lib/index.bundle.js",
   "files": [
-    "lib/**/*",
+    "lib/**/*.*",
     "README.md",
     "package.json"
   ],

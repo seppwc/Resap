@@ -16,11 +16,6 @@ export default {
       format: 'cjs',
       globals: [{ react: 'React', gsap: 'gsap' }],
     },
-    {
-      file: `lib/${pkg.module}`,
-      format: 'es', // the preferred format
-      globals: [{ react: 'React', gsap: 'gsap' }],
-    },
   ],
   external: [
     // makes dependancies and peer dependancies available to bundles
@@ -34,7 +29,11 @@ export default {
     }),
     terser(), // minifies generated bundles
     commonjs(),
-    resolve(),
+    resolve({
+      mainFields: ['module', 'main'],
+      extensions: ['.js', '.ts', '.map'],
+      dedupe: ['react', 'react-dom'],
+    }),
     globals(),
     peerDepsExternal(),
     externalGlobals({

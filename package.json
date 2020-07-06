@@ -1,6 +1,6 @@
 {
   "name": "resap",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "React hooks for easy GSAP animations, cause why not?",
   "main": "lib/index.js",
   "files": [

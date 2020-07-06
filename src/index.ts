@@ -1,3 +1,1 @@
-import { useToggle } from './hooks/useToggle'
-
-export { useToggle }
+export { useToggle } from './hooks/useToggle'

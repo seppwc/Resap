@@ -15,7 +15,9 @@
     "lint": "eslint ./src/index.ts",
     "build": "npm run lint && rollup -c && tsc",
     "prepublishOnly": "npm run build",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "publish": "npm run patch && cp -rf package.json lib && cd lib && npm publish",
+    "patch": "npm version patch"
   },
   "repository": {
     "type": "git",
@@ -69,6 +71,7 @@
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "rollup": "^2.18.2",
+    "rollup-plugin-external-globals": "^0.5.0",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-terser": "^6.1.0",

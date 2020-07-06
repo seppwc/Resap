@@ -1,5 +1,5 @@
 import React from 'react'
-import gsap from 'gsap'
+import gsap, { CSSPlugin } from 'gsap'
 
 type OptionProp = gsap.TweenVars | gsap.CSSVars
 
@@ -14,7 +14,7 @@ export const useToggle: ResapToggleFunction = (
   state: boolean,
   options: OptionProp | OptionProp[]
 ) => {
-  const [ref, setRef] = React.useState<gsap.TweenTarget>(null)
+  const [ref, setRef] = React.useState<gsap.TweenTarget>(window)
   const [loaded, setLoaded] = React.useState(0)
   const { current: tl } = React.useRef<gsap.core.Timeline>(
     gsap.timeline({ paused: true })
@@ -38,6 +38,10 @@ export const useToggle: ResapToggleFunction = (
   React.useEffect(() => {
     if (loaded) {
       animate()
+    }
+
+    if (!loaded) {
+      gsap.registerPlugin(CSSPlugin)
     }
     setLoaded(loaded + 1)
   }, [state])

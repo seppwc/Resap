@@ -10,7 +10,7 @@
     "README.md",
     "package.json"
   ],
-  "types": "lib/index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "lint": "eslint ./src/index.ts",
     "build": "npm run lint && rollup -c && tsc",

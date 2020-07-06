@@ -12,7 +12,7 @@ export default {
   input: 'src/index.ts', // our source file
   output: [
     {
-      file: ${pkg.main,
+      file: pkg.main,
       format: 'cjs',
       globals: [{ react: 'React', gsap: 'gsap' }],
     },

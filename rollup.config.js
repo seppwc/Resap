@@ -12,17 +12,17 @@ export default {
   input: 'src/index.ts', // our source file
   output: [
     {
-      file: pkg.main,
+      file: `lib/${pkg.main}`,
       format: 'cjs',
       globals: [{ react: 'React', gsap: 'gsap' }],
     },
     {
-      file: pkg.module,
+      file: `lib/${pkg.module}`,
       format: 'es', // the preferred format
       globals: [{ react: 'React', gsap: 'gsap' }],
     },
     {
-      file: pkg.browser,
+      file: `lib/${pkg.browser}`,
       format: 'iife',
       name: 'resap', // the global which can be used in a browser
       globals: [{ react: 'React', gsap: 'gsap' }],

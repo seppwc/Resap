@@ -10,7 +10,7 @@ npm install resap
 ```javascript 
 //import useToggle from resap library
 
-Import { useToggle } from ‘resap’
+import { useToggle } from 'resap'
 
 // create your state!
  const [open, set] = React.useState(true);

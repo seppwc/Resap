@@ -14,9 +14,7 @@
     "lint": "eslint ./src/index.ts",
     "build": "npm run lint && rollup -c && tsc",
     "test": "jest src --coverage",
-    "copy": "copyfiles -f package.json README.md LICENSE lib",
-    "prebuild": "rimraf lib",
-    "postbuild": "npm run copy"
+    "prebuild": "rimraf lib"
   },
   "repository": {
     "type": "git",

@@ -29,7 +29,7 @@ npm install resap
 
 ## API
 
-- useToggle (toggles GSAP animation from base css styling to stated animation based on state changes)
+### - **useToggle** (toggles GSAP animation from base css styling to stated animation based on state changes)
 
 ```javascript
 //import useToggle from resap library

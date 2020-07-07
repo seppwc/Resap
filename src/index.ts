@@ -7,3 +7,4 @@ React.useEffect(() => {
 
 export { useToggle } from './hooks/useToggle'
 export { useGSAP } from './hooks/useGSAP'
+export { useTween } from './hooks/useTween'

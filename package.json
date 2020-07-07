@@ -16,7 +16,8 @@
     "build": "npm run lint && rollup -c && tsc",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "prebuild": "rimraf lib"
+    "prebuild": "rimraf lib",
+    "pretest": "clear"
   },
   "repository": {
     "type": "git",

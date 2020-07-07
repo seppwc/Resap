@@ -14,7 +14,7 @@ npm install resap
 | ------------------ | :---------------------------------------------------------------------------------------------------------- | :---------------------------------- | :------------------------ |
 | useDraggable\*     | returns gsap.Draggable object using Draggable.create                                                        | DraggableVars                       | ref, Draggable[Object]    |
 | useEase\*          | creates custom ease                                                                                         | easeVars                            | Ease[Object]              |
-| useGSAP\*          | returns the basic gsap object to use if you need a method we dont cover                                     | none                                | GSAP[Object]              |
+| useGSAP          | returns the basic gsap object to use if you need a method we dont cover                                     | none                                | GSAP[Object]              |
 | useMotionPath      | create a motion path using the motionPath plugin                                                            | motionPathVars                      | MotionPath[Object]        |
 | useToggle          | toggle trigger animation based on react state using gsap 'to', can optionally pass in an array of tweenvars | state ,tweenvars / tweenvars[Array] | ref                       |
 | useTween\*         | returns a Tween                                                                                             | TweenVars[Object]                   | ref, Tween[Object]        |
@@ -75,5 +75,28 @@ const { current: animProps } = React.useRef([
   },
 ])
 ```
+
+### - **useGSAP** (returns GSAP object)
+
+if there is something which our hooks dont account for we provide the useGSAP hook for you to tap into the regular GSAP API
+
+```javascript
+import { useGSAP } from 'resap'
+
+// get the entire GSAP Object
+const gsap = useGSAP()
+
+gsap.to(ref, {x: 100})
+
+// OR
+
+// Destructure just the methods you need
+
+const {set, to} = useGSAP()
+
+set({y: 100})
+to(ref, {x: 100})
+```
+
 
 (More hooks to be included!)
